@@ -37,6 +37,59 @@ This project demonstrates basic **Java**, **JSP scripting**, **HTML forms**, and
 | 0 – 39          | Fail       |
 
 ---
+##Code Explanation
+
+The project consists of a single JSP page:
+
+#Form Input:
+
+<form>
+    Enter Marks: <input type="text" name="marks"><br><br>
+    <input type="submit" value="Check Grade">
+</form>
+
+
+The user enters the marks.
+
+When submitted, the same page handles the request using request.getParameter().
+
+Fetching Input in JSP:
+
+String m = request.getParameter("marks");
+
+
+Retrieves the value of the marks input from the form.
+
+Checking Input and Calculating Grade:
+
+if(m != null){
+    int marks = Integer.parseInt(m);
+    String grade = "";
+
+    if(marks >= 90){
+        grade = "A Grade";
+    } else if(marks >= 75){
+        grade = "B Grade";
+    } else if(marks >= 60){
+        grade = "C Grade";
+    } else if(marks >= 40){
+        grade = "D Grade";
+    } else {
+        grade = "Fail";
+    }
+}
+
+
+##Converts the input from String to int.
+
+Uses if-else statements to determine the grade.
+
+##Displaying the Result:
+
+<h4>Grade: <%= grade %></h4>
+
+Outputs the grade dynamically on the page using JSP expression tags.
+---
 
 ## How to Run
 1. Clone the repository:
